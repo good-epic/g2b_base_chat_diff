@@ -1,4 +1,4 @@
---index-url https://download.pytorch.org/whl/cu126
+--index-url https://download.pytorch.org/whl/cu126/
 
 accelerate==1.6.0
 aiohappyeyeballs==2.6.1
