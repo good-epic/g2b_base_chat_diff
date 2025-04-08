@@ -1,3 +1,5 @@
+--index-url https://download.pytorch.org/whl/cu126
+
 accelerate==1.6.0
 aiohappyeyeballs==2.6.1
 aiohttp==3.11.16
@@ -80,7 +82,7 @@ sympy==1.13.1
 tokenizers==0.21.1
 toml==0.10.2
 tomli==2.2.1
-torch==2.6.0+cu126
+torch==2.6.0
 torchaudio==2.6.0
 torchvision==0.21.0
 tornado==6.4.2
