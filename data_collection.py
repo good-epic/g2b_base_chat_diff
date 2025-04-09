@@ -38,21 +38,16 @@ def process_single_joke(joke, joke_idx, gemma_2, gemma_2_it, crosscoder, token_i
     
     try:
         # --- First get activations only ---
-        with gemma_2.trace(joke):
-            l13_act_base = gemma_2.model.layers[13].output[0][:, token_index].save()
-            gemma_2.model.layers[13].output.stop()
-        
-        with gemma_2_it.trace(joke):
-            l13_act_it = gemma_2_it.model.layers[13].output[0][:, token_index].save()
-            gemma_2_it.model.layers[13].output.stop()
-        
-        # --- Now get logits for KL calculation ---
         with th.no_grad():
             with gemma_2.trace(joke):
+                l13_act_base = gemma_2.model.layers[13].output[0][:, token_index].save()
+                gemma_2.model.layers[13].output.stop()
                 logits_base = gemma_2.model.output[0][:, token_index].save()
                 gemma_2.model.output.stop()
             
             with gemma_2_it.trace(joke):
+                l13_act_it = gemma_2_it.model.layers[13].output[0][:, token_index].save()
+                gemma_2_it.model.layers[13].output.stop()        
                 logits_it = gemma_2_it.model.output[0][:, token_index].save()
                 gemma_2_it.model.output.stop()
             
